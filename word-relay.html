@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>끝말잇기</title>
+  <style></style>
+</head>
+<body>
+  <div><span id="order">1</span>번째 참가자</div>
+  <div>제시어: <span id="word"></span></div>
+  <input type="text">
+  <button>입력</button>
+  <button class="btn">버튼2</button>
+  <button class="btn">버튼3</button>
+<script>
+  const number = parseInt(prompt("몇 명이 참가하나요?"), 10); // 10진법
+  alert(number);
+  const yesOrNo = confirm("맞나요?");
+
+  // 아이디는 #, 클래스는 .
+
+  document.querySelector('input').addEventListener('input', function() {
+    console.log('글자입력')
+  });
+  document.querySelector('button').addEventListener('click', function(){
+    console.log('버튼클릭 ')
+  });
+</script>
+</body>
+</html>
