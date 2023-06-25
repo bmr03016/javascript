@@ -20,12 +20,18 @@
 
   // 아이디는 #, 클래스는 .
 
-  document.querySelector('input').addEventListener('input', function() {
-    console.log('글자입력')
+  // function() : 익명 함수
+  // = funtion() {} 와 () => {} 거의 같다(아직은 차이점 몰라도 됨)
+  document.querySelector('input').addEventListener('input', (event) => {
+    console.log('글자입력', event.target.value);
   });
-  document.querySelector('button').addEventListener('click', function(){
-    console.log('버튼클릭 ')
-  });
+
+  // 여러 번 사용될 때는 아래처럼 변수로 빼줘야 하지만, 일회성일 경우 위처럼 익명함수를 이용해도 된다.
+  const onClick = function() {
+    console.log('버튼클릭');
+  }
+  document.querySelector('button').addEventListener('click', onClick); // onClick() 실수많이하니 주의!
+  
 </script>
 </body>
 </html>
