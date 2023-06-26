@@ -32,8 +32,8 @@
 
         const onClickButton = () => {
           if (
-            (newWord.length == 3 && word[word.length - 1] == newWord[0]) ||
-            !word
+            !word ||
+            (newWord.length == 3 && word[word.length - 1] == newWord[0])
           ) {
             // 제시어가 비어 있는가?
             // 입력한 단어가 올바른가?
