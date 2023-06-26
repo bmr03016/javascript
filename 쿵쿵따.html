@@ -1,0 +1,69 @@
+<!-- 끝말잇기 게임을 응용해 쿵쿵따 게임 만들기
+그저 입력할 수 있는 단어를 세 글자로 고정하면 됩니다. 
+다만, 세 글자가 아니라면 다시 입력하라고 표시하세요. 
+또한, 초반에 prompt 함수를 사용해 몇 명이 참가할지를 선택할 때 사용자가 취소를 누르면 
+다음 코드가 실행되지 않게 처리해주세요. -->
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿵쿵따</title>
+    <style></style>
+  </head>
+  <body>
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어: <span id="word"></span></div>
+    <input type="text" />
+    <button>입력</button>
+    <script>
+      const number = parseInt(prompt("몇 명이 참가하나요?"));
+
+      // prompt 함수에서 취소를 눌렀다면 값이 null로 입력되었을 것이기에
+      // 그 값이 parseInt 함수에 들어가게 되면 NaN이 될 것이고 -> if 문에서는 false 로 취급되기에 if문 내부 코드가 실행되지 않음
+      if (number) {
+        const $button = document.querySelector("button");
+        const $input = document.querySelector("input");
+        const $word = document.querySelector("#word"); // word는 id니까
+        const $order = document.querySelector("#order");
+        let word; // 제시어
+        let newWord; // 새로 입력한 단어
+
+        const onClickButton = () => {
+          if (
+            (newWord.length == 3 && word[word.length - 1] == newWord[0]) ||
+            !word
+          ) {
+            // 제시어가 비어 있는가?
+            // 입력한 단어가 올바른가?
+            // 비어 있다
+            word = newWord; // 입력한 단어가 제시어가 된다. 데이터를 바꾸고
+            // 화면도 바꿔줘야 함
+            $word.textContent = word;
+            const order = parseInt($order.textContent); // order 숫자로 변환, 현재 순서
+            if (order + 1 > number) {
+              // 현재 순서에서 1을 더한 값이 number보다 크다면
+              $order.textContent = 1; // 다음 순서를 1로
+            } else {
+              // 그렇지 않다면
+              $order.textContent = order + 1; // 다음 순서를 현재 순서 + 1로
+            }
+          } else {
+            // 올바르지 않은가
+            // 세 글자가 아님
+            alert("다시 입력해주세요!");
+          }
+          $input.value = "";
+          $input.focus(); // 입력창 하이라이트
+        };
+        const onInput = (event) => {
+          newWord = event.target.value;
+        };
+
+        $button.addEventListener("click", onClickButton);
+        $input.addEventListener("input", onInput);
+      }
+    </script>
+  </body>
+</html>
