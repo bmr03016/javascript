@@ -21,7 +21,8 @@
 </ul><br />
 
 ## calculator
-<img width="1000" alt="스크린샷 2023-06-26 오후 9 16 47" src="https://github.com/bmr03016/javascript/assets/115970361/f875ad12-a14e-4f4b-8a71-b56c7dc610da">
+![스크린샷 2023-06-27 오후 2 33 17](https://github.com/bmr03016/javascript/assets/115970361/0764d066-ebb2-4d71-8b01-e9fae375d308)
+
 <ul>
   <li> 고차 함수, Event 객체로 중복 제거</li>
 </ul>
